@@ -5,7 +5,7 @@ services:
     image: phpmyadmin/phpmyadmin
     mem_limit: 256000000
     environment:
-      PMA_HOST: mariadb_friendzone
+      PMA_HOST: '52.221.227.175'
       PMA_PORT: 3306
       PMA_USER: root
       PMA_PASSWORD: password

@@ -11,7 +11,7 @@
     "username": "root",
     "password": "password",
     "database": "friendzonedb",
-    "host": "mariadb_friendzone",
+    "host": "52.221.227.175",
     "port": "3306",
     "dialect": "mysql"
   },
