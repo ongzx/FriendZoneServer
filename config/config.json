@@ -1,0 +1,26 @@
+{
+  "local": {
+    "username": "root",
+    "password": "",
+    "database": "friendzonedb",
+    "host": "127.0.0.1",
+    "port": "3306",
+    "dialect": "mysql"
+  },
+  "development": {
+    "username": "root",
+    "password": "password",
+    "database": "friendzonedb",
+    "host": "mariadb_friendzone",
+    "port": "3306",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "password",
+    "database": "friendzonedb",
+    "host": "mariadb_friendzone",
+    "port": "3306",
+    "dialect": "mysql"
+  }
+}

@@ -1,0 +1,46 @@
+version: '2'
+
+services:
+  phpmyadmin_friendzone:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mariadb_friendzone
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: password
+    ports:
+      - 8181:80
+    networks:
+      - friendzone_network
+    depends_on:
+      - mariadb_friendzone
+
+  friendzone:
+    build: .
+    ports:
+      - 32788:3000
+    networks:
+      - friendzone_network
+    volumes:
+      - .:/usr/src/friendzone
+    restart: always
+    depends_on:
+      - mariadb_friendzone
+    command: bash -c "gulp serve"
+
+  mariadb_friendzone:
+    image: mariadb:10.2.7
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: friendzonedb
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - 3306
+    networks:
+      - friendzone_network
+    volumes:
+      - /usr/local/var/mysql/:/var/lib/mysql
+
+networks:
+    friendzone_network:
