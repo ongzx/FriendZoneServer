@@ -12,7 +12,7 @@
     "password": "password",
     "database": "friendzonedb",
     "host": "52.221.227.175",
-    "port": "3306",
+    "port": "32770",
     "dialect": "mysql"
   },
   "production": {
