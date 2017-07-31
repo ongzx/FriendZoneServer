@@ -3,6 +3,7 @@ version: '2'
 services:
   phpmyadmin_friendzone:
     image: phpmyadmin/phpmyadmin
+    mem_limit: 256000000
     environment:
       PMA_HOST: mariadb_friendzone
       PMA_PORT: 3306
@@ -17,6 +18,8 @@ services:
 
   friendzone:
     build: .
+    image: ongzx/friendzone
+    mem_limit: 256000000
     ports:
       - 32788:3000
     networks:
@@ -27,9 +30,11 @@ services:
     depends_on:
       - mariadb_friendzone
     command: bash -c "gulp serve"
+    # command: ['pm2', 'start', 'processes.json', '--no-daemon']
 
   mariadb_friendzone:
     image: mariadb:10.2.7
+    mem_limit: 256000000
     environment:
       MYSQL_USER: root
       MYSQL_PASSWORD: password
