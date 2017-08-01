@@ -108,14 +108,12 @@ function addFriend(req, res, next) {
             where: {
                 $or: [
                     { 
-                        userUuid: { 
-                            $in: _.map(user, 'uuid')
-                        } 
+                        userUuid: user[0].uuid,
+                        friendUuid: user[1].uuid
                     },
                     { 
-                        friendUuid: { 
-                            $in: _.map(user, 'uuid')
-                        } 
+                        userUuid: user[1].uuid,
+                        friendUuid: user[0].uuid
                     }
                 ],
                 // status: {
@@ -146,6 +144,7 @@ function addFriend(req, res, next) {
                         success: true
                     })
                 })
+
             } else {
                 return res.send({
                     success: true,
@@ -320,7 +319,7 @@ function blockUser(req, res, next) {
                 if (friendship) {
                     friendship[0].update({
                         following: false,
-                        status: friendship[0].status === 'Accepted' ? 'Accepted' :'Blocked'
+                        status: 'Blocked'
                     }).then((result) => {
                         return res.send({
                             success: true

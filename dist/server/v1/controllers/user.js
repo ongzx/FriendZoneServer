@@ -118,13 +118,11 @@ function addFriend(req, res, next) {
         _models.Friendship.findOrCreate({
             where: {
                 $or: [{
-                    userUuid: {
-                        $in: _lodash2.default.map(user, 'uuid')
-                    }
+                    userUuid: user[0].uuid,
+                    friendUuid: user[1].uuid
                 }, {
-                    friendUuid: {
-                        $in: _lodash2.default.map(user, 'uuid')
-                    }
+                    userUuid: user[1].uuid,
+                    friendUuid: user[0].uuid
                 }]
                 // status: {
                 //     $notLike: '%Blocked'
@@ -316,7 +314,7 @@ function blockUser(req, res, next) {
                 if (friendship) {
                     friendship[0].update({
                         following: false,
-                        status: friendship[0].status === 'Accepted' ? 'Accepted' : 'Blocked'
+                        status: 'Blocked'
                     }).then(function (result) {
                         return res.send({
                             success: true

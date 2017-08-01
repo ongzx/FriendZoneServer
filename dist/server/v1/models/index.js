@@ -26,7 +26,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // User
 var dropAndCreateDB = false; // this will auto migrate and seed
 var migrateDB = true;
-var seedDB = true;
+var seedDB = false;
 
 if (process.env.NODE_ENV == 'production') {
 	dropAndCreateDB = false;

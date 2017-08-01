@@ -1,9 +1,9 @@
 {
   "local": {
     "username": "root",
-    "password": "",
+    "password": "password",
     "database": "friendzonedb",
-    "host": "127.0.0.1",
+    "host": "mariadb_friendzone",
     "port": "3306",
     "dialect": "mysql"
   },

@@ -7,11 +7,9 @@ let dbPassword = null;
 
 switch (process.env.NODE_ENV) {
     case 'local':
-        console.log("LOCAL! ");
         dbPassword = process.env.DB_PASSWORD_MARIADB_LOCAL;
         break;
     case 'development':
-        console.log("DEVELOPMENT! "); 
         dbPassword = process.env.DB_PASSWORD_MARIADB_DEV;
         break;
     case 'staging':
@@ -24,9 +22,6 @@ switch (process.env.NODE_ENV) {
         dbPassword = process.env.DB_PASSWORD_MARIADB_LOCAL;
         break;
 }
-
-console.log("CONFIG");
-console.log(config);
 
 const sequelize = new Sequelize(
     config.db_name_mariadb,

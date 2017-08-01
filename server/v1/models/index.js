@@ -8,7 +8,7 @@ import childProcess from 'child_process';
 // DO NOT SET dropAndCreateDB to true in PRODUCTION
 let dropAndCreateDB = false; // this will auto migrate and seed
 let migrateDB = true;
-const seedDB = true;
+const seedDB = false;
 
 if(process.env.NODE_ENV == 'production') {
 	dropAndCreateDB = false;
