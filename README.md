@@ -6,6 +6,7 @@ API Documentation
 
 | Endpoint | Params | Description |
 | --- | --- | --- |
+| POST /api/user | null | List all users |
 | POST /api/user/addFriend | {  friends: [ 'Harvey.Lynch@gmail.com', 'Cecilia_Wiegand80@hotmail.com' ] } | Establish friends connection |
 | POST /api/user/findFriends | {  email: 'Harvey.Lynch@gmail.com' } | Find friends by email |
 | POST /api/user/commonFriends | {  email: [ 'Harvey.Lynch@gmail.com', 'Cecilia_Wiegand80@hotmail.com' ] } | Find common friends between two emails |
